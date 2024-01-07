@@ -20,9 +20,9 @@ const App = () => {
     const [smShow, setSmShow] = useState(false);
     const [searchX, setSearchX] = useState('');
     const [searchY, setSearchY] = useState('');
-    const [responseStatus, setResponseStatus] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isRequestInvalid, setIsRequestInvalid] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
 
     useEffect(() => {
         if (isRequestInvalid) {
@@ -30,18 +30,36 @@ const App = () => {
         }
       }, [isRequestInvalid]);
 
-    const searchProfile = async (id, server) => {
-    setIsLoading(true);
-    const response = await fetch(`${url}/${id}/${server}`, options);
-    const result = await response.json();
-    console.log(result);
-    setResponseStatus(response.status);
-    verifyAcc(result.data);
-    setIsRequestInvalid(response.status === 400);
-    setIsLoading(false);
-    setSmShow(response.status !== 400);
+      const searchProfile = async (id, server) => {
+        setIsLoading(true);
     
-}   
+        try {
+            const response = await fetch(`${url}/${id}/${server}`, options);
+            const result = await response.json();
+            console.log(result);
+    
+            if (result.success) {
+                verifyAcc(result.data);
+                setIsRequestInvalid(false);
+                setIsSuccess(true);
+                setSmShow(true);
+            } else {
+                verifyAcc([]); // Clear the data in case of previous success
+                setIsRequestInvalid(true);
+                setIsSuccess(false);
+                setSmShow(false);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setIsRequestInvalid(true);
+            setIsSuccess(false);
+            setSmShow(false);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+    
+
 
     //87685950
     //3098
