@@ -7,7 +7,14 @@ import Help from './question-square-fill.svg';
 
 //https://api.isan.eu.org/nickname/ml?id=87685950&zone=3098 
 
-const API_URL = 'https://api.isan.eu.org/nickname/ml?';
+const url = 'https://id-game-checker.p.rapidapi.com/mobile-legends';
+const options = {
+  method: 'GET', 
+  headers: {
+    'X-RapidAPI-Key': '96893596d7msh5bbf0932aafc725p1c7fe5jsn6810aaee2dfb',
+		'X-RapidAPI-Host': 'id-game-checker.p.rapidapi.com'
+  }
+}
 const App = () => {
     const [account, verifyAcc] = useState([]);
     const [smShow, setSmShow] = useState(false);
@@ -25,11 +32,11 @@ const App = () => {
 
     const searchProfile = async (id, server) => {
     setIsLoading(true);
-    const response = await fetch(`${API_URL}&id=${id}&zone=${server}`);
-    const data = await response.json();
-
+    const response = await fetch(`${url}/${id}/${server}`, options);
+    const result = await response.json();
+    console.log(result);
     setResponseStatus(response.status);
-    verifyAcc(data);
+    verifyAcc(result.data);
     setIsRequestInvalid(response.status === 400);
     setIsLoading(false);
     setSmShow(response.status !== 400);
@@ -92,10 +99,9 @@ const App = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <div>UID: {account.id}</div>
-            <div>SERVER ID: {account.zoneId}</div>
-            <div>IGN: {account.name}</div>
-            
+            <div>UID: {account.userId}</div>
+            <div>SERVER ID: {searchY}</div>
+            <div>IGN: {account.username}</div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="light" onClick={() => setSmShow(false)}>
