@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/true2service/static/css/main.ccbacec8.css",
-    "main.js": "/true2service/static/js/main.702d0035.js",
+    "main.js": "/true2service/static/js/main.2ef2a674.js",
     "index.html": "/true2service/index.html",
     "static/media/question-square-fill.svg": "/true2service/static/media/question-square-fill.5ca0b23e24e47ef4c04a386986c8594c.svg",
     "static/media/arrow-right-circle-fill.svg": "/true2service/static/media/arrow-right-circle-fill.441b1f8cf2ceccd2375e002190f733b8.svg",
     "main.ccbacec8.css.map": "/true2service/static/css/main.ccbacec8.css.map",
-    "main.702d0035.js.map": "/true2service/static/js/main.702d0035.js.map"
+    "main.2ef2a674.js.map": "/true2service/static/js/main.2ef2a674.js.map"
   },
   "entrypoints": [
     "static/css/main.ccbacec8.css",
-    "static/js/main.702d0035.js"
+    "static/js/main.2ef2a674.js"
   ]
 }
