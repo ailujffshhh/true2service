@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+/*Dark Background Color:
+
+Hex: #1E1E1E
+RGB: 30, 30, 30
+Text Color on Dark Background:
+
+Hex: #FFFFFF
+RGB: 255, 255, 255
+Secondary Text or Accent Color:
+
+Hex: #CCCCCC
+RGB: 204, 204, 204
+Link Color:
+
+Hex: #4CAF50
+RGB: 76, 175, 80
+Border Color:
+
+Hex: #333333
+RGB: 51, 51, 51
+*/
+
+:root {
+    --font-poppins: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #1E1E1E !important;
+    font-family: var(--font-poppins) !important;
+    color: #FFFFFF !important;
+    margin: 0;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.title {
+    border-bottom: 1px solid #333333;
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.container1 {
+    margin-top: 10px;
+    display: flex;
+    padding: 10px;
+    color: #FFFFFF;
+    background-color: #333333;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0px 2px 7px 3px rgba(51,51,51,0.75);
+    margin: 20px;
+}
+.container2 {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    justify-content: center;
+    
+}
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    margin: 20px;
+}
+
+
+.input-field {
+    width: 300px;
+    font-size: 16px;
+  }
+.uid, 
+.sid {
+    flex: 1;
+    color: #FFFFFF;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #333333;
+    outline: none;
+}
+
+
+.but {
+    margin: 20px;
+}
+
+.payment{
+    display: flex;
+    justify-content: center;
+}
+
+.spinner-container {
+    position: absolute;
+}
+
+.uid.invalid,
+.sid.invalid {
+  border-color: #ff7676; /* Red border for invalid input */
+}
+
+
+.uid.valid,
+.sid.valid {
+    border-color: #02a202;
+}
+.modal-content {
+    background-color: #1E1E1E !important;
+    color: #FFFFFF;
+  }
+
+.modal-header {
+    color: #02a202;
+}
+.Help{
+    width: 30px;
+    display:flex;
+    flex-direction: row;
+    justify-content: end;
+    
+}
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .uid,
+    .sid {
+        width: calc(100% - 20px); /* Make input fields full-width with some margin on smaller screens */
+        margin-right: 20px; /* Add right margin between input fields and button */
+    }
+
+    .but {
+        width: calc(100% - 20px); /* Make the button full-width with some margin on smaller screens */
+        margin-right: 20px; /* Add right margin for consistency */
+    }
+
+    .input-container, .container1 {
+        flex-direction: column; /* Stack input fields in a column on smaller screens */
+    }
+}
